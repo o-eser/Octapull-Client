@@ -27,6 +27,16 @@
                 </div>
             </div>
             <div class="mb-3">
+                <label for="userName" class="form-label">Hesap Adı</label>
+                <input formControlName="userName" type="text" class="form-control" id="userName"
+                    [ngClass]="{'is-invalid':submitted && component.userName.errors}"
+                    placeholder="Hesap Adınızı Giriniz">
+                <div class="form-text text-danger"
+                    *ngIf="submitted && component.userName.errors?.required">Lütfen
+                    hesap adınızı giriniz.
+                </div>
+            </div>
+            <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input formControlName="email" type="email" class="form-control" id="email"
                     [ngClass]="{'is-invalid':submitted && component.email.errors}"
@@ -39,6 +49,17 @@
                     *ngIf="submitted && component.email.errors?.email">Lütfen geçerli bir
                     email giriniz.
                 </div>
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Telefon</label>
+                <input formControlName="phone" type="text" class="form-control" id="phone"
+                    [ngClass]="{'is-invalid':submitted && component.phone.errors}"
+                    placeholder="Telefon">
+                <div class="form-text text-danger"
+                    *ngIf="submitted && component.phone.errors?.required">Lütfen
+                    telefonunuzu giriniz.
+                </div>
+
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Şifre</label>
@@ -59,7 +80,7 @@
                     *ngIf="submitted && component.passwordAgain.errors?.required">Lütfen
                     şifre tekrarını giriniz.
                 </div>
-                <div class="form-text text-danger" *ngIf="submitted && frm.hasError('notSame')">
+                <div class="form-text text-danger" *ngIf="frm.hasError('notSame')">
                     Şifreler uyuşmuyor.
                 </div>
             </div>

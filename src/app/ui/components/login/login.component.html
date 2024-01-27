@@ -1,0 +1,35 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+
+        <!-- Icon -->
+        <!-- <div class="fadeIn first">
+            <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+        </div> -->
+
+        <!-- Login Form -->
+        <form [formGroup]="frm" (ngSubmit)="onSubmit(frm.value)">
+            <input formControlName="userNameorEmail" type="text" id="login" class="fadeIn second"
+                placeholder="Email veya Kullanıcı Adınızı Giriniz..."
+                [ngClass]="{'is-invalid':submitted && component.userNameorEmail.errors}">
+            <div class="form-text text-danger"
+                *ngIf="submitted && component.userNameorEmail.errors?.required">Lütfen
+                Email ve kullanıcı adını giriniz.
+            </div>
+            <input formControlName="password" type="password" id="password" class="fadeIn third"
+                placeholder=" Parola"
+                [ngClass]="{'is-invalid':submitted && component.password.errors}">
+            <div class="form-text text-danger"
+                *ngIf="submitted && component.password.errors?.required">Lütfen
+                şifrenizi giriniz.
+            </div>
+            <input type="submit" class="fadeIn fourth" value="Giriş Yap">
+        </form>
+
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+            <a class="underlineHover" href="#">Forgot Password?</a>
+        </div>
+
+    </div>
+</div>
